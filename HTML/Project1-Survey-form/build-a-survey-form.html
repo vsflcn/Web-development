@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:200i,300,400&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-/sP2bX4c5U6iV6cRw4p3Nq/tvL5u9/J5WKAqrZGpC6V+IOHXC7+W5q9VMo1qjqQsp1F2WIz66Lc1Oc9mpFZW8Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Health & Wellbeing First Aid Survey</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1 id="title">Health & Wellbeing First Aid Survey</h1>
+    <p id="description" class="p1">Health comes first or what you need to say to save yourself and your emotional state in difficult times. This survey will help me better understand you and your fears</p>
+    <p class="p2">Please remember</p>
+    <p class="p3">I can help</p>
+
+    <form id="survey-form">
+        <h2>Please answer some questions to let me know more about your problem: </h2>
+
+        <fieldset>
+            <legend class="radio">1) Have you felt overwhelmed for at least the last 3 months? </legend>
+            <label>Yes<input class="inline" type="radio" name="group1" value="option1" id="option1" required></label>
+            <label>No<input class="inline" type="radio" name="group1" value="option2" id="option2"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>2) How difficult is it for you to fulfill basic needs such as food, sleep, etc. <label id="number-label" for="number">where 1 - "difficult" and 5 - "easy"?</label></legend>
+            <input type="number" id="number" required min="1" max="5" placeholder="1-5" required>
+        </fieldset>
+
+        <fieldset>
+            <legend>3) Select the most problematic field in your life now: </legend>
+            <label for="dropdown">Select an option:</label>
+            <select id="dropdown" name="dropdown">
+                <option value="option1">Health</option>
+                <option value="option2">Work</option>
+                <option value="option3">Partner</option>
+                <option value="option4">Current events</option>
+                <option value="option5">Lifestyle</option>
+            </select>
+        </fieldset>
+
+        <fieldset>
+            <legend class="radio">4) Choose the most favorite thing which always makes you happy: </legend>
+            <label for="hobbies"><input class="inline" id="hobbies" type="radio" value="option-h" name="choose" /> Hobbies</label>
+            <label for="travel"><input id="travel" value="option-t" type="radio" name="choose" /> Travel</label>
+            <label for="education"><input id="education" type="radio" value="option-e" name="choose" /> Education</label>
+            <label for="life"><input id="life" value="option-l" type="radio" name="choose" /> <input placeholder="your option"></label>
+        </fieldset>
+
+        <fieldset>
+            <legend>5) Select the most preferable option of mental health care for you: </legend>
+            <input class="inline" type="checkbox" value="meditation">Meditation</input>
+            <input class="inline" type="checkbox" value="reading">Reading</input>
+            <input class="inline" type="checkbox" value="yoga">Yoga</input>
+            <input class="inline" type="checkbox" value="outdoor walk">Outdoor walk</input>
+            <input class="inline" type="checkbox" value="nothing">Nothing</input>
+        </fieldset>
+
+        <h2>Additional information: </h2>
+
+        <fieldset>
+            <div id="survey-form">What's your name? <label id="name-label" for="name">Write down here: </label><input id="name" required placeholder="name or nickname..."></div>
+        </fieldset>
+
+        <fieldset>
+            <div id="survey-form">I'd like to contact with you via email, please write down your email. <label id="email-label" for="email">Write down here please:</label><input type="email" id="email" required placeholder="email address..."></div>
+        </fieldset>
+
+        <fieldset>
+            <label name="comments">Do you want to say something more? Here you are: <textarea placeholder="write something you worry about..."></textarea> </label>
+        </fieldset>
+
+        <button id="submit">Submit</button>
+    </form>
+</body>
+</html>
+
+<style>
+
+body {
+    background-color: #f5f5dc; 
+    color: #333; 
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+#title {
+    color: #4f4f4f; 
+    margin-bottom: 20px;
+    text-align: center;
+    margin-top: 45px;
+}
+
+#description, .p1, .p2, .p3 {
+    color: #666; 
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.p3 {
+  font-weight: bold;
+  font-size: 1.4rem;
+}
+
+#survey-form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+legend {
+    color: #4f4f4f; 
+    margin-bottom: 10px;
+}
+
+label, input, select, textarea {
+    color: #333; }
+    
+</style>
