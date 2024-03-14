@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roman number converter</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.8.1/css/all.min.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+</head>
+<body>
+<main class="container">
+    <img id="logo" class="logo-img" src="https://i.imgur.com/bknMNGB.png"><p id="logo" class="logo">vsflcn</p>
+  <h1>Roman Numeral Converter</h1>
+  <div class="roman">
+    <label for="number">Check your arabic number: </label>
+    <input id="number" class="number" type="text" value="" placeholder="Enter a value here..." ></input>
+    <button id="convert-btn" class="convert-btn">Convert</button>
+    <div class="output hidden" id="output"></div>
+</div>
+  <div class="roman-description">
+    <i class="fa fa-lightbulb"></i>
+    <p class="roman-description"> Roman numerals (I, II, V, X, XI, L, C, D, M) use different symbols for each power of ten and there is no zero symbol.</p>
+  </div>
+</main>
+
+<script>
+const input = document.getElementById('number');
+const output = document.getElementById('output');
+const convertBtn = document.getElementById('convert-btn');
+
+function arabicToRoman(num) {
+  const romanDigits = ["I", "IV", "V", "IX", "X", "XL", "L", "XC", "C", "CD", "D", "CM", "M"];
+  const arabicValues = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+  let output = ''
+  for (let i = arabicValues.length - 1; i >= 0; i--) {
+    while (num >= arabicValues[i]) {
+      output += romanDigits[i];
+      num -= arabicValues[i];
+    }
+  }
+
+  return output;
+}
+
+function validInput() {
+  const inputInt = parseInt(input.value);
+  
+  if (!input.value || isNaN(inputInt)) {
+    output.innerText = "Please enter a valid number";
+    return;
+  }
+
+  if (inputInt === -1 || inputInt === 0) {
+    output.innerText = "Please enter a number greater than or equal to 1";
+    return;
+  }
+
+  if (inputInt >= 4000) {
+    output.innerText = "Please enter a number less than or equal to 3999";
+    return;
+  }
+
+  output.textContent = arabicToRoman(inputInt);
+  input.value = "";
+}
+
+convertBtn.addEventListener("click", validInput);
+
+input.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    validInput();
+  }
+});
+</script>
+
+<style>
+body {
+  color: #f6f1df;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  background-color: #0a0a23;
+}
+
+.container {
+  width: 100%;
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+h1 {
+  align-items: center;
+  justify-content: center;
+  color: #f6f1df;
+  margin: -50px;
+  font-size: 3rem;
+}
+
+.logo-img {
+  height: 75px;
+  position: relative;
+  display: flex;
+  top: 145px;
+  left: -145px;
+}
+
+.logo {
+  color: #f6f1df;
+  font-family: monospace;
+  font-size: 3.4rem;
+  margin: 75px;
+}
+
+label {
+  color: #0a0a23;
+  font-size: 1.3rem;
+}
+
+.number {
+  height: 40px;
+  width: 250px;
+  text-align: center;
+  font-size: 1.3rem;
+  border: none;
+  border-bottom: 2px solid #4603154d;
+}
+
+.roman-description {
+  width: min(100vw, 450px);
+  font-size: 1.3rem;
+  min-height: 140px;
+  margin-top: -40px;
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+i.fa.fa-lightbulb {
+  position: relative;
+  color: #fdb306;
+  height: 135px;
+  width: 40px;
+  font-family: "Font Awesome 5 Free";
+  font-size: 30px;
+}
+
+.roman {
+  width: min(100vw, 450px);
+  min-height: 150px;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 10px;
+  margin: 80px 0;
+  background-color: white;
+  box-shadow: 0 8px 8px #6e3b3d;
+  position: relative;
+}
+
+.convert-btn {
+  width: 90px;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
+  background-color: #14b4f4f0;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1.2rem;
+  margin: 20px
+}
+
+.output {
+  overflow-y: auto;
+  word-wrap: break-word;
+  min-height: 50px;
+  color: black;
+  padding-left: 110px;
+  padding-right: 110px;
+  font-size: 1.5rem;
+}
+
+</style>
+</body>
+</html>
